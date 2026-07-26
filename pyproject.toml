@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pty4ai"
+version = "0.1.0"
+description = "A daemon + CLI for agents to test interactive CLI programs over real pseudo-terminals."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "ptyprocess>=0.7",
+    "pyte>=0.8",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+]
+
+[project.scripts]
+pty4ai = "pty4ai.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["pty4ai*"]
