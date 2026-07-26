@@ -16,16 +16,33 @@ The daemon autostarts on first use. See `docs/agent-guide.md` for the
 read-loop pattern, `docs/cli.md` for the full command reference, and
 `docs/architecture.md` for how it's built.
 
-## Install
+## Build & Install
+
+### From source (recommended for development)
 
 ```sh
 python3 -m venv .venv
 .venv/bin/pip install -e ".[dev]"
 ```
 
+### System-wide via Make
+
+```sh
+make install       # pip installs to PREFIX (/usr/local)
+make install-dev   # editable install with dev deps
+```
+
+### Build a distribution
+
+```sh
+make build         # produces wheel + sdist in dist/
+```
+
 ## Test
 
 ```sh
+make test
+# or directly:
 .venv/bin/pytest -q
 ```
 
